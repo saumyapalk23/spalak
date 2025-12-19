@@ -1,5 +1,5 @@
 const text = "spalak";
-const speed = 50;
+const speed = 75;
 let index = 0;
 
 const typeText = document.getElementById("type-text");
