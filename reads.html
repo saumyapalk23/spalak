@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>spalak — projects</title>
+  <title>spalak — reads</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -12,35 +12,70 @@
 
     .bg-grid {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
+      bottom: 80px;
+      left: 600px;
+      width: auto;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       z-index: 0;
-      pointer-events: none;
     }
 
     .bg-grid-item {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+      width: auto;
+      height: auto;
+      max-width: 400px;
+      max-height: 500px;
+      overflow: visible;
+      position: relative;
+    }
+
+    .bg-grid-item::before,
+    .bg-grid-item::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 300px;
+      z-index: -1;
+      transition: all 0.3s ease;
+    }
+
+    .bg-grid-item::before {
+      left: -200px;
+      background: linear-gradient(to right, transparent, rgba(255, 200, 80, 0.4) 50%, transparent);
+    }
+
+    .bg-grid-item::after {
+      right: -200px;
+      background: linear-gradient(to left, transparent, rgba(255, 200, 80, 0.4) 50%, transparent);
+    }
+
+    .bg-grid-item:hover::before {
+      background: linear-gradient(to right, transparent, rgba(255, 200, 80, 0.9) 50%, transparent);
+    }
+
+    .bg-grid-item:hover::after {
+      background: linear-gradient(to left, transparent, rgba(255, 200, 80, 0.9) 50%, transparent);
     }
 
     .bg-grid-item img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       filter: grayscale(50%) brightness(0.5);
-      transition: filter 0.3s ease;
+      transition: filter 0.3s ease, box-shadow 0.3s ease;
       pointer-events: auto;
       cursor: pointer;
+      box-shadow: 0 0 60px rgba(255, 220, 100, 0.3),
+                  0 0 100px rgba(255, 220, 100, 0.2);
     }
 
     .bg-grid-item img:hover {
       filter: grayscale(0%) brightness(0.9);
+      box-shadow: 0 0 80px rgba(255, 220, 100, 0.5),
+                  0 0 120px rgba(255, 220, 100, 0.3);
     }
 
     nav,
@@ -118,54 +153,12 @@
       margin-bottom: 20px;
     }
 
-    .lbxd-link-container {
-      text-align: center;
-      padding-right: 100px;
-    }
-
-    .lbxd-link {
-      display: inline-block;
-      font-size: 1.2rem;
-      color: white;
-      text-decoration: none;
-      padding: 20px 40px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      transition: all 0.3s ease;
-      letter-spacing: 1px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .lbxd-link:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.05);
-      transition: left 0.3s ease;
-    }
-
-    .lbxd-link:hover:before {
-      left: 0;
-    }
-
-    .lbxd-link:hover {
-      border-color: rgba(255, 255, 255, 0.6);
-      transform: translateY(-2px);
-    }
-
-    .lbxd-subtitle {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      opacity: 0.5;
-      letter-spacing: 2px;
-    }
-
     @media (max-width: 900px) {
       .bg-grid {
-        grid-template-columns: repeat(2, 1fr);
+        position: relative;
+        top: 20px;
+        right: auto;
+        margin: 0 auto;
       }
 
       .page-container {
@@ -212,31 +205,10 @@
     </ul>
   </nav>
 
-  <!-- BACKGROUND GRID -->
+  <!-- BACKGROUND IMAGE -->
   <div class="bg-grid">
     <div class="bg-grid-item">
-      <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?w=800" alt="">
-    </div>
-    <div class="bg-grid-item">
-      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800" alt="">
-    </div>
-    <div class="bg-grid-item">
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800" alt="">
-    </div>
-    <div class="bg-grid-item">
-      <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800" alt="">
-    </div>
-    <div class="bg-grid-item">
-      <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800" alt="">
-    </div>
-    <div class="bg-grid-item">
-      <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800" alt="">
-    </div>
-    <div class="bg-grid-item">
-      <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800" alt="">
-    </div>
-    <div class="bg-grid-item">
-      <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800" alt="">
+      <img src="images/co6.jpg" alt="">
     </div>
   </div>
 
@@ -245,39 +217,33 @@
     <!-- LEFT SIDEBAR -->
     <aside class="sidebar">
       <ul class="sidebar-nav">
-        <li><a href="#my-creations">my creations</a></li>
-        <li><a href="#reviews">reviews</a></li>
+        <li><a href="#recent-books">recent books</a></li>
+        <li><a href="#comics">comics</a></li>
       </ul>
     </aside>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
-      <section id="my-creations" class="content-section">
-        <h2>my creations</h2>
-        <p class="date">videos & photos</p>
-        <p>
-          <!-- Add your Instagram embeds or video content here -->
-        </p>
-      </section>
-
-      <section id="reviews" class="content-section">
+      <section id="recent-books" class="content-section">
         <h2>reviews</h2>
-        <p class="date">film thoughts</p>
+        <p class="date">what ive read as of late</p>
         <p>
-          <!-- Add your film reviews here -->
+          <!-- Add your book reviews here -->
         </p>
       </section>
 
-      <div class="lbxd-link-container">
-        <a href="https://letterboxd.com/spalak/" target="_blank" class="lbxd-link">
-          view more on letterboxd →
-        </a>
-        <div class="lbxd-subtitle">reviews · ratings · lists</div>
-      </div>
+      <section id="comics" class="content-section">
+        <h2>comics</h2>
+        <p class="date">my forte</p>
+        <p>
+          <!-- Add your comic reviews here -->
+        </p>
+      </section>
     </main>
 
   </div>
 
+  
    <script>
     // Highlight active section in sidebar
     const sections = document.querySelectorAll('.entry');
@@ -305,5 +271,7 @@
     window.addEventListener('scroll', setActiveLink);
     setActiveLink(); // Call on load
   </script>
+
+
 </body>
 </html>

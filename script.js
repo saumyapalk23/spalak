@@ -1,4 +1,4 @@
-const text = "spalak";
+const text = "SPALAK";
 const speed = 75;
 let index = 0;
 
